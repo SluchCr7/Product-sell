@@ -20,7 +20,7 @@ const Confirm = (props) => {
                 {
                     props.elements.map((item, index) => {
                         return (
-                            <div className='flex items-center gap-5 w-full justify-between'>
+                            <div className='flex items-center gap-5 w-full justify-between' key={index}>
                                 <div className='flex flex-row items-start gap-3'>
                                     <img src={item.img_ds} className='w-[50px] h-[50px]' alt="icon-delete" />
                                     <div className='flex flex-col items-start gap-1'>

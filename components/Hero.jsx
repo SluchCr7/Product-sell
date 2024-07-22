@@ -65,7 +65,7 @@ const Hero = () => {
                                         {
                                             elements.map((item, index) => {
                                                 return (
-                                                <div className={`flex items-center gap-5 w-full justify-between`}>
+                                                <div key={index} className={`flex items-center gap-5 w-full justify-between`}>
                                                     <div className='flex flex-col items-start gap-1'>
                                                         <span className='text-xl font-extrabold text-red'>{item.name}</span>
                                                         <div className='flex items-center gap-1'> 
