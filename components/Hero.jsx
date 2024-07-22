@@ -1,10 +1,12 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { data } from '../data'
 import Card from './Card'
 import Confirm from './Confirm'
-
+import Image from 'next/image'
 const Hero = () => {
+
+
     const [isempty, setisempty] = React.useState(true)
     const [isActive, setisActive] = React.useState(false)
     const [isNum, setisNum] = React.useState(0)
@@ -33,7 +35,7 @@ const Hero = () => {
         }
     }
     return (
-      <>
+    <>
         <div className={`w-full min-h-[100vh] pt-24 ${check ? "opacity-50 pointer-events-none" : "opacity-100 pointer-events-auto"}`}>
             <div className='container mx-auto'>
                 <div className='flex flex-col items-center xl:flex-row xl:items-start gap-[30px]'>
@@ -55,7 +57,7 @@ const Hero = () => {
                             isempty
                                 ?
                                 <div className='flex flex-col items-center'>
-                                    <img src="/illustration-empty-cart.svg" alt="image-empty-cart" />
+                                    <Image width={200} height={200} src="/illustration-empty-cart.svg" alt="image-empty-cart" />
                                     <span className='text-sm font-extrabold text-rose-400 uppercase tracking-[3px]'>Your cart is empty</span>
                                 </div>
                                 :
@@ -75,7 +77,7 @@ const Hero = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <img src={item.img} onClick={handleCancel} className='w-[20px] h-[20px]' alt="icon-delete" />
+                                                    <Image width={20} height={20} src={item.img} onClick={handleCancel} className='w-[20px] h-[20px]' alt="icon-delete" />
                                                 </div>
                                                 )
                                             })
@@ -92,7 +94,7 @@ const Hero = () => {
                 </div>
             </div>
         </div>
-        <Confirm cancel={handleCancel} check={check} Activeclass={ActiveCl} setActiveCl={setActiveCl} setCheck={setCheck} elements={elements} setElements={setElements} total={total} setisempty={setisempty} />
+        <Confirm cancel={handleCancel} check={check} Activeclass={ActiveCl} setActiveCl={setActiveCl} setCheck={setCheck} elements={elements} setElements={setElements} total={total} setisempty={setisempty} setisNum={setisNum} isNum={isNum} />
     </>
   )
 }

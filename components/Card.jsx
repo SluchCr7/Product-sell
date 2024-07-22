@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 const Card = ( props) => {
     const [isActive, setisActive] = React.useState(false)
     const [ActiveCl , setActiveCl] = React.useState(false)
@@ -41,7 +42,7 @@ const Card = ( props) => {
     return (
         <div key={props.name} className='p-4 w-[100%] rounded-lg m-[1rem]' id={props.id}>
             <div className='flex relative items-center'>
-            <img className={`w-[100%] rounded-lg ${ActiveCl ? "border-[3px] border-red" :""}`} src={props.image_ds} alt={props.name} />
+            <Image width={200} height={200} className={`w-[100%] rounded-lg ${ActiveCl ? "border-[3px] border-red" :""}`} src={props.image_ds} alt={props.name} />
                 {
                     (isActive)
                     ?
@@ -52,7 +53,7 @@ const Card = ( props) => {
                     </button>
                     :
                     <button onClick={HandleActive} className='absolute bottom-[-1rem] left-0 right-0 flex items-center gap-3 bg-white p-3 justify-center w-[50%] mx-auto rounded-xl'>
-                        <img src="/icon-add-to-cart.svg" alt="icon-cart" />
+                        <Image className='w-[1.5rem]' width={20} height={20} src="/icon-add-to-cart.svg" alt="icon-cart" />
                         <span className='text-sm font-extrabold text-green'>Add To Cart</span>
                     </button>
                 }

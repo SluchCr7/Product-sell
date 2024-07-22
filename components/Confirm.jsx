@@ -1,17 +1,17 @@
 'use client'
 import React from 'react'
-import { data } from '../data'
-
+import Image from 'next/image'
 const Confirm = (props) => {
     const handleConfirm = () => {
         props.setActiveCl(false)
         props.setCheck(false)
         props.setElements([])
         props.setisempty(true)
+        props.setisNum(0)
     }
     return (
         <div className={`confirm w-[500px] bg-white shadow-xl p-6 ${props.check ? "flex" : "hidden"} flex-col items-start gap-5 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]`}>
-            <img src="/icon-order-confirmed.svg" alt="icon-close" />
+            <Image width={100} height={100} src="/icon-order-confirmed.svg" alt="icon-close" />
             <div className='flex flex-col items-start gap-2 my-3'>
                 <h1 className='text-2xl font-extrabold text-accent-Rose500'>Your order is confirmed</h1>
                 <p className='text-sm font-extrabold text-black'>We’ve accepted your order</p>
@@ -22,7 +22,7 @@ const Confirm = (props) => {
                         return (
                             <div className='flex items-center gap-5 w-full justify-between' key={index}>
                                 <div className='flex flex-row items-start gap-3'>
-                                    <img src={item.img_ds} className='w-[50px] h-[50px]' alt="icon-delete" />
+                                    <Image width={50} height={50} src={item.img_ds} className='w-[50px] h-[50px]' alt="icon-delete" />
                                     <div className='flex flex-col items-start gap-1'>
                                         <span className='text-xl font-extrabold text-red'>{item.name}</span>
                                         <div className='flex items-center gap-1'>
