@@ -5,3 +5,6 @@
 body{
   @apply font-primary bg-rose-100
 }
+.bordercl{
+  border: 1px solid transparent !important;
+}

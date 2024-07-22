@@ -42,9 +42,9 @@ const Card = ( props) => {
     return (
         <div key={props.name} className='p-4 w-[100%] rounded-lg m-[1rem]' id={props.id}>
             <div className='flex relative items-center'>
-            <Image width={200} height={200} className={`w-[100%] rounded-lg ${ActiveCl ? "border-[3px] border-red" :""}`} src={props.image_ds} alt={props.name} />
+            <Image width={200} height={200} className={`w-[100%] rounded-lg  ${ActiveCl ? "border-[3px] border-red" :""} ${props.cancelcl ? "bordercl" :""}`} src={props.image_ds} alt={props.name} />
                 {
-                    (isActive)
+                    isActive
                     ?
                     <button className='absolute bottom-[-1rem] left-0 right-0 flex items-center gap-3 bg-red p-3 justify-between w-[50%] mx-auto rounded-xl'>
                         <span onClick={handleMinus} className='text-base font-extrabold text-white border-[1px] border-white px-2 rounded-full hover:bg-white hover:text-red transition-all duration-500'>-</span>

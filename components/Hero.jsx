@@ -16,6 +16,7 @@ const Hero = () => {
     const [check, setCheck] = React.useState(false)
     const [ActiveCl, setActiveCl] = React.useState(false)
     const [cancel, setCancel] = React.useState(false)
+    const [cancelcl , setCancelCl] = React.useState(false)
     const HandleActive = () => {
         setisActive(true)
         setisempty(false)
@@ -45,7 +46,7 @@ const Hero = () => {
                             {
                                 data.map((item, index) => {
                                     return (
-                                        <Card setTotal={setTotal} count={item.count} total={total} setEle={setElements} ele={elements} Num={isNum} clickNum={setisNum} empty={setisempty} onClick={HandleActive} Active={isActive} key={index} name={item.name} image_ds={item.image_ds} price={item.price} category={item.category} img_mp={item.image_mo} img_th={item.image_th} img_ta={item.image_ta} id="CardSec" NewPrice={item.NewPrice}  />
+                                        <Card cancelcl={cancelcl} setCancelcl={setCancelCl} setTotal={setTotal} count={item.count} total={total} setEle={setElements} ele={elements} Num={isNum} clickNum={setisNum} empty={setisempty} onClick={HandleActive} Active={isActive} key={index} name={item.name} image_ds={item.image_ds} price={item.price} category={item.category} img_mp={item.image_mo} img_th={item.image_th} img_ta={item.image_ta} id="CardSec" NewPrice={item.NewPrice}  />
                                     )
                                 })
                             }
@@ -94,7 +95,7 @@ const Hero = () => {
                 </div>
             </div>
         </div>
-        <Confirm cancel={handleCancel} check={check} Activeclass={ActiveCl} setActiveCl={setActiveCl} setCheck={setCheck} elements={elements} setElements={setElements} total={total} setisempty={setisempty} setisNum={setisNum} isNum={isNum} />
+        <Confirm cancel={handleCancel} setCancelCl={setCancelCl} check={check} Activeclass={ActiveCl} setActiveCl={setActiveCl} setCheck={setCheck} elements={elements} setElements={setElements} total={total} setisempty={setisempty} setisNum={setisNum} isNum={isNum} />
     </>
   )
 }

@@ -8,6 +8,7 @@ const Confirm = (props) => {
         props.setElements([])
         props.setisempty(true)
         props.setisNum(0)
+        props.setCancelCl(true)
     }
     return (
         <div className={`confirm w-[500px] bg-white shadow-xl p-6 ${props.check ? "flex" : "hidden"} flex-col items-start gap-5 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]`}>
