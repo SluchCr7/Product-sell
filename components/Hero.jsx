@@ -15,19 +15,22 @@ const Hero = () => {
     const [total, setTotal] = React.useState(0)
     const [check, setCheck] = React.useState(false)
     const [ActiveCl, setActiveCl] = React.useState(false)
+    const [cancel, setCancel] = React.useState(false)
     const HandleActive = () => {
         setisActive(true)
         setisempty(false)
         setisNum(isNum + 1)
     }
+
     const handleCancel = (e) => {
-        if (isNum > 0) {
+        if (isNum == 1) {
+            setisempty(true)
+        }
+        else {
             e.target.parentElement.remove()
             setisNum(isNum - 1)
             setTotal(total - e.target.parentElement.children[0].children[1].children[1].children[1].children[1].innerHTML)
-        }
-        else {
-            setisempty(true)
+            console.log(isNum)
         }
     }
     return (
@@ -41,14 +44,14 @@ const Hero = () => {
                             {
                                 data.map((item, index) => {
                                     return (
-                                        <Card setTotal={setTotal}  total={total} setEle={setElements} ele={elements} Num={isNum} clickNum={setisNum} empty={setisempty} onClick={HandleActive} Active={isActive} count={item.count} key={index} name={item.name} image_ds={item.image_ds} price={item.price} category={item.category} img_mp={item.image_mo} img_th={item.image_th} img_ta={item.image_ta} id="CardSec" NewPrice={item.NewPrice}  />
+                                        <Card setTotal={setTotal} count={item.count} total={total} setEle={setElements} ele={elements} Num={isNum} clickNum={setisNum} empty={setisempty} onClick={HandleActive} Active={isActive} count={item.count} key={index} name={item.name} image_ds={item.image_ds} price={item.price} category={item.category} img_mp={item.image_mo} img_th={item.image_th} img_ta={item.image_ta} id="CardSec" NewPrice={item.NewPrice}  />
                                     )
                                 })
                             }
                         </div>
                     </div>
                     <div className='menu bg-white p-4 w-[100%] rounded-lg xl:w-[30%]'>
-                        <span className='text-xl font-extrabold text-rose-400 uppercase'>You  Cart ({isNum})</span>
+                        <span className='text-xl font-extrabold text-rose-400 uppercase'>You  Cart (<span className='text-rose-500 num'>{isNum}</span>)</span>
                         {
                             isempty
                                 ?
@@ -83,14 +86,14 @@ const Hero = () => {
                                         <span className='text-xl font-extrabold text-rose-400 uppercase'>Total</span>
                                         <span className='text-3xl font-extrabold text-green'>${total}</span>
                                     </div>
-                                    <button className='w-full mt-2 bg-rose-500 text-white py-4 rounded-md' onClick={()=> setCheck(true)}>Checkout</button>
+                                    <button className={`w-full mt-2 bg-rose-500 text-white py-4 rounded-md`} onClick={()=> setCheck(true)}>Checkout</button>
                                 </div>
                             }
                     </div>
                 </div>
             </div>
         </div>
-        <Confirm check={check} Activeclass={ActiveCl} setActiveCl={setActiveCl} setCheck={setCheck} elements={elements} setElements={setElements} total={total} setisempty={setisempty} />
+        <Confirm cancel={handleCancel} check={check} Activeclass={ActiveCl} setActiveCl={setActiveCl} setCheck={setCheck} elements={elements} setElements={setElements} total={total} setisempty={setisempty} />
     </>
   )
 }

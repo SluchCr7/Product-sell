@@ -3,9 +3,9 @@ const Card = ( props) => {
     const [isActive, setisActive] = React.useState(false)
     const [ActiveCl , setActiveCl] = React.useState(false)
     const [count, setCount] = React.useState(1)
-    const [countAll , setCountAll] = React.useState(1)
     const handlePlus = () => {
         setCount(count + 1)
+        // props.count + 1
     }
     const handleMinus = () => {
         if (count == 0) {
@@ -13,6 +13,7 @@ const Card = ( props) => {
         }
         else {
             setCount(count - 1)
+            console.log(count)
         }
 
     }
@@ -29,7 +30,7 @@ const Card = ( props) => {
                 // Set number of item to count in cart
                 name: props.name,
                 price: props.price,
-                count : count,
+                count : props.count ,
                 img: "/icon-remove-item.svg",
                 img_ds : props.image_ds,
                 NewPrice: props.price * count,
