@@ -45,7 +45,7 @@ const Hero = () => {
                             {
                                 data.map((item, index) => {
                                     return (
-                                        <Card setTotal={setTotal} count={item.count} total={total} setEle={setElements} ele={elements} Num={isNum} clickNum={setisNum} empty={setisempty} onClick={HandleActive} Active={isActive} count={item.count} key={index} name={item.name} image_ds={item.image_ds} price={item.price} category={item.category} img_mp={item.image_mo} img_th={item.image_th} img_ta={item.image_ta} id="CardSec" NewPrice={item.NewPrice}  />
+                                        <Card setTotal={setTotal} count={item.count} total={total} setEle={setElements} ele={elements} Num={isNum} clickNum={setisNum} empty={setisempty} onClick={HandleActive} Active={isActive} key={index} name={item.name} image_ds={item.image_ds} price={item.price} category={item.category} img_mp={item.image_mo} img_th={item.image_th} img_ta={item.image_ta} id="CardSec" NewPrice={item.NewPrice}  />
                                     )
                                 })
                             }
