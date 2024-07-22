@@ -1,9 +1,7 @@
 'use client'
 import React from 'react'
 import { data } from '../data'
-// import Image from 'next/image'
 import Card from './Card'
-import { Hidden } from '@mui/material'
 import Confirm from './Confirm'
 
 const Hero = () => {
@@ -25,6 +23,7 @@ const Hero = () => {
     const handleCancel = (e) => {
         if (isNum == 1) {
             setisempty(true)
+            setisNum(0)
         }
         else {
             e.target.parentElement.remove()
